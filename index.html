@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>108 Divya Desams — Sacred Abodes of Maha Vishnu</title>
+<meta name="description" content="Interactive directory of the 108 Divya Desams — Vishnu temples sung by the 12 Alwars in the Nalayira Divya Prabandham.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="108 Divya Desams — Sacred Abodes of Maha Vishnu">
+<meta property="og:url" content="https://gurusubbaraman.github.io/DivyaDesams/">
+<link rel="icon" href="favicon.svg?v=step5.5.5.5.4.3.13.12.11.10.8" type="image/svg+xml">
+<meta name="theme-color" content="#1E5AA0">
+<script async="true" src="https://www.googletagmanager.com/gtag/js?id=G-5FR1HH14HT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-5B01Z3PG6D', { anonymize_ip: true });
+</script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Serif+Tamil:wght@500;700&family=Playfair+Display:wght@700&display=swap">
+<style>
+:root{--vaishnava-blue:#1E5AA0;--vaishnava-blue-dark:#164574;--gold:#D4AF37;--gold-light:#E8C567;--ivory:#FDF8F0;--ivory-dark:#F5EDD9;--deep-indigo:#1A1A3A;--deep-indigo-soft:#2D2D50;--paramapadam-purple:#4A148C;--ksheera-teal:#1B3A5B;--mannargudi-orange:#DAA520}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{font-family:'Inter',-apple-system,sans-serif;background:var(--ivory);color:var(--deep-indigo);line-height:1.5}
+header{background:linear-gradient(135deg,var(--vaishnava-blue) 0%,var(--vaishnava-blue-dark) 100%);color:white;padding:12px 20px;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(30,90,160,0.2)}
+.hdr-row{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1440px;margin:0 auto}
+.hdr-brand{display:flex;align-items:center;gap:12px}
+.hdr-brand-icon{font-size:32px;color:var(--gold)}
+.hdr-brand-text h1{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;line-height:1.2}
+.hdr-brand-text .tagline{font-size:0.72rem;letter-spacing:1.5px;color:rgba(255,255,255,0.85);text-transform:uppercase}
+.hdr-nav{display:flex;gap:20px;align-items:center}
+.hdr-nav a{color:white;text-decoration:none;font-size:0.88rem;font-weight:500;padding:6px 10px;border-radius:4px}
+.hdr-nav a:hover,.hdr-nav a.active{background:rgba(212,175,55,0.2);color:var(--gold)}
+.listen-all-btn{background:var(--gold);color:var(--deep-indigo);padding:8px 14px;border-radius:8px;font-weight:600;font-size:0.85rem;cursor:pointer;border:none;font-family:inherit}
+main{display:flex;height:calc(100vh - 60px);min-height:600px}
+#sidebar{flex:0 0 260px;background:var(--ivory);border-right:1px solid var(--ivory-dark);overflow-y:auto;padding:16px 12px}
+.sidebar-title{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--vaishnava-blue);margin-bottom:8px}
+.sidebar-subtitle{font-size:0.78rem;color:var(--deep-indigo-soft);margin-bottom:16px}
+.filter-select{width:100%;padding:8px 10px;border:1.5px solid var(--ivory-dark);border-radius:6px;background:white;font-family:inherit;font-size:0.85rem;margin-bottom:12px}
+#map{flex:1;height:100%;position:relative}
+#detail-panel{flex:0 0 380px;background:white;border-left:1px solid var(--ivory-dark);overflow-y:auto;display:none}
+#detail-panel.active{display:block}
+.posture-pills{position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:999;background:white;padding:6px 10px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+.posture-pill{padding:5px 12px;background:white;border:1.5px solid var(--ivory-dark);border-radius:12px;font-size:0.72rem;font-weight:500;cursor:pointer;color:var(--deep-indigo);font-family:inherit}
+.posture-pill.active{background:var(--vaishnava-blue);color:white;border-color:var(--vaishnava-blue)}
+#journey-panel{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  width:280px;
+  background:white;
+  border:2px solid var(--gold);
+  border-radius:12px;
+  padding:14px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25), 0 4px 12px rgba(30,90,160,0.15);
+  z-index:1100;
+  backdrop-filter: blur(8px);
+}
+.journey-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--ivory-dark)}
+.journey-title{font-size:0.9rem;font-weight:700;color:var(--vaishnava-blue)}
+.journey-buttons{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.journey-btn{padding:8px;background:white;border:2px solid var(--ivory-dark);border-radius:8px;cursor:pointer;text-align:center;font-size:0.72rem;font-weight:600;font-family:inherit}
+.journey-btn.active{background:var(--vaishnava-blue);color:white;border-color:var(--vaishnava-blue)}
+.journey-btn small{display:block;font-size:0.62rem;font-weight:400;opacity:0.75;margin-top:2px}
+footer{background:var(--vaishnava-blue-dark);color:rgba(255,255,255,0.85);padding:14px 20px;text-align:center;font-size:0.78rem}
+footer a{color:var(--gold);text-decoration:none}
+.footer-om{font-family:'Noto Serif Tamil',serif;font-size:0.95rem;color:var(--gold);margin:8px 0}
+
+.journey-minimize{background:transparent;border:none;cursor:pointer;font-size:1.3rem;font-weight:700;color:var(--vaishnava-blue);padding:2px 10px;border-radius:4px;font-family:inherit;line-height:1;transition:background 0.15s}
+.journey-minimize:hover{background:rgba(30,90,160,0.1)}
+#journey-panel{transition:padding 0.2s ease, width 0.2s ease}
+#journey-panel.minimized{padding:8px 12px;width:auto;min-width:200px}
+#journey-panel.minimized .journey-content{display:none}
+#journey-panel.minimized .journey-header{margin-bottom:0;padding-bottom:0;border-bottom:none}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--ivory-dark);
+  background: white;
+  padding: 0 4px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 4px 8px 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--deep-indigo);
+  transition: all 0.15s ease;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  line-height: 1.1;
+  font-family: 'Inter', -apple-system, sans-serif;
+  min-height: 52px;
+}
+
+.tab-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.tab:hover {
+  background: rgba(30, 90, 160, 0.04);
+  color: var(--vaishnava-blue);
+}
+
+.tab.active {
+  color: var(--vaishnava-blue);
+  border-bottom-color: var(--gold);
+  font-weight: 700;
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.tab-panels {
+  padding: 14px 16px;
+  background: white;
+}
+
+/* PHASE 1 START */
+#detail-panel { background: white; padding: 0; }
+.popup-header { padding: 24px 20px 20px 20px; color: white; position: relative; background: linear-gradient(135deg, #1E5AA0 0%, #164574 100%); }
+.popup-header.celestial-ocean { background: linear-gradient(135deg, #0F6B70 0%, #094E52 100%) !important; }
+.popup-header.celestial-realm { background: linear-gradient(135deg, #5B2C8E 0%, #3E1D63 100%) !important; }
+.popup-header.abhimana { background: linear-gradient(135deg, #C89932 0%, #A67D24 100%) !important; }
+.popup-close { position: absolute; top: 12px; right: 12px; background: rgba(255,255,255,0.2); color: white; border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center; transition: all 0.2s; z-index: 2; }
+.popup-close:hover { background: rgba(255,255,255,0.35); transform: rotate(90deg); }
+.popup-title { font-family: 'Playfair Display', 'Georgia', serif; font-size: 1.35rem; font-weight: 700; line-height: 1.2; margin-bottom: 8px; padding-right: 40px; letter-spacing: -0.01em; }
+.popup-title + .popup-title { display: none; }
+.popup-title-ta { font-family: 'Noto Serif Tamil', 'Latha', serif; font-size: 1rem; color: #E8C567; margin-bottom: 14px; font-weight: 500; line-height: 1.5; }
+.popup-header.abhimana .popup-title-ta { color: rgba(255,255,255,0.85); }
+.popup-location { font-size: 0.85rem; color: rgba(255,255,255,0.92); margin-bottom: 12px; }
+.popup-location + div { display: inline-block !important; padding: 4px 12px !important; background: rgba(0, 0, 0, 0.25) !important; color: #FFD966 !important; font-size: 0.68rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.12em !important; border-radius: 12px !important; border: 1px solid rgba(255, 217, 102, 0.35) !important; margin-top: 0 !important; margin-bottom: 8px !important; }
+.popup-header.abhimana .popup-location + div { background: rgba(20, 20, 40, 0.55) !important; color: #FFF9E6 !important; border-color: rgba(255, 249, 230, 0.3) !important; }
+.popup-badges { display: flex !important; flex-wrap: wrap; gap: 6px; padding: 16px 20px !important; background: #FEF9EA !important; border-bottom: 1px solid #EDE0BC; margin: 0 !important; }
+.badge { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; background: white !important; color: #1A1A3A !important; font-size: 0.7rem !important; font-weight: 600 !important; border-radius: 14px; border: 1px solid rgba(212, 175, 55, 0.35) !important; box-shadow: 0 1px 2px rgba(0,0,0,0.04) !important; text-transform: uppercase !important; letter-spacing: 0.05em; }
+.badge-alwars { background: linear-gradient(135deg, #FFF7DC 0%, #FFEBB8 100%) !important; border-color: rgba(212, 175, 55, 0.6) !important; color: #5C4400 !important; font-weight: 700 !important; }
+.coord-row { padding: 14px 20px 6px 20px !important; background: white !important; margin: 0 !important; display: block !important; border-bottom: none !important; }
+.coord-row::before { content: "COORDINATES"; display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #6B7280; margin-bottom: 6px; }
+.coord-text { font-family: 'SF Mono', Consolas, 'Courier New', monospace; font-size: 0.95rem; font-weight: 600; color: #1A1A3A !important; display: inline-block; margin-right: 12px; }
+.coord-btn { display: inline-flex !important; align-items: center; gap: 4px; padding: 5px 12px !important; background: white !important; border: 1.5px solid #E8DCC0 !important; border-radius: 8px !important; color: #1E5AA0 !important; font-size: 0.75rem !important; font-weight: 600 !important; cursor: pointer; vertical-align: middle; transition: all 0.15s; }
+.coord-btn:hover { background: #FEF9EA !important; border-color: #D4AF37 !important; }
+.map-actions { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; gap: 6px !important; padding: 12px 20px 18px 20px !important; background: white !important; border-bottom: 2px solid #EDE0BC !important; }
+.map-btn { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; gap: 4px !important; padding: 10px 4px !important; background: white !important; border: 1.5px solid #E8DCC0 !important; border-radius: 10px !important; color: #1A1A3A !important; text-decoration: none !important; font-size: 0.68rem !important; font-weight: 600 !important; cursor: pointer; transition: all 0.15s !important; min-height: 54px !important; }
+.map-btn:hover { border-color: #1E5AA0 !important; background: rgba(30, 90, 160, 0.04) !important; transform: translateY(-1px); box-shadow: 0 3px 10px rgba(30, 90, 160, 0.15); }
+.map-btn-icon { font-size: 1.2rem !important; line-height: 1 !important; }
+#detail-panel, #detail-panel * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+#detail-panel .popup-title { font-family: 'Playfair Display', 'Georgia', serif; }
+#detail-panel .popup-title-ta { font-family: 'Noto Serif Tamil', 'Latha', serif; }
+#detail-panel .coord-text { font-family: 'SF Mono', Consolas, 'Courier New', monospace; }
+.tab-panels { padding: 18px 20px !important; background: white; }
+#detail-panel .tab-panel { font-size: 0.85rem; line-height: 1.55; color: #1A1A3A; }
+#detail-panel .tab-panel p { font-size: 0.85rem !important; line-height: 1.55 !important; }
+#detail-panel .tab-panel div { line-height: 1.5; }
+#detail-panel .tab-panel h1, #detail-panel .tab-panel h2, #detail-panel .tab-panel h3, #detail-panel .tab-panel h4, #detail-panel .tab-panel .panel-title, #detail-panel .tab-panel [class*="panel-title"], #detail-panel .tab-panel [class*="section-title"] { font-size: 0.98rem !important; font-weight: 700 !important; line-height: 1.3 !important; color: #1E5AA0 !important; margin-bottom: 12px !important; margin-top: 0 !important; }
+#detail-panel .tab-panel div[style*="font-size:2rem"], #detail-panel .tab-panel div[style*="font-size: 2rem"] { font-size: 1.4rem !important; }
+#detail-panel .tab-panel div[style*="font-size:1.2rem"], #detail-panel .tab-panel div[style*="font-size: 1.2rem"] { font-size: 0.98rem !important; }
+#detail-panel .tab-panel [class*="listen-title"], #detail-panel .tab-panel [class*="related-title"], #detail-panel .tab-panel [class*="card-title"] { font-size: 0.9rem !important; font-weight: 700 !important; line-height: 1.35 !important; }
+#detail-panel .tab-panel [class*="listen-meta"], #detail-panel .tab-panel [class*="related-subtitle"], #detail-panel .tab-panel [class*="listen-subtitle"], #detail-panel .tab-panel small { font-size: 0.75rem !important; line-height: 1.4 !important; color: #6B7280 !important; }
+#detail-panel .tab-panel div[style*="font-size:0.78rem"], #detail-panel .tab-panel div[style*="font-size: 0.78rem"] { font-size: 0.82rem !important; }
+#detail-panel .tab-panel div[style*="font-size:0.75rem"], #detail-panel .tab-panel div[style*="font-size: 0.75rem"] { font-size: 0.72rem !important; letter-spacing: 0.05em; }
+#detail-panel .tab-panel table, #detail-panel .pasuram-table { font-size: 0.8rem !important; }
+#detail-panel .tab-panel table th, #detail-panel .pasuram-table th { font-size: 0.68rem !important; font-weight: 700 !important; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 8px !important; }
+#detail-panel .tab-panel table td, #detail-panel .pasuram-table td { font-size: 0.78rem !important; padding: 6px 8px !important; line-height: 1.4 !important; }
+#detail-panel .tab-panel button, #detail-panel .tab-panel a[class*="btn"] { font-size: 0.75rem !important; font-weight: 600; }
+#detail-panel .tab-panel [class*="subfilter"], #detail-panel .tab-panel [class*="filter-pill"] { font-size: 0.72rem !important; }
+#detail-panel .tab-panel [class*="tag"], #detail-panel .tab-panel [class*="chip"] { font-size: 0.7rem !important; }
+@media (max-width: 900px) {
+header { padding: 10px 12px !important; }
+.hdr-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap !important; gap: 8px; }
+.hdr-brand { flex: 1; min-width: 0; }
+.hdr-brand-text h1 { font-size: 0.95rem !important; line-height: 1.15; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hdr-brand-text .tagline { display: none !important; }
+.hdr-brand-icon { font-size: 22px !important; }
+.hdr-nav { display: none !important; }
+.listen-all-btn { position: fixed !important; top: 14px !important; right: 56px !important; z-index: 1600 !important; padding: 0 !important; font-size: 0 !important; background: rgba(212, 175, 55, 0.95) !important; border-radius: 50% !important; box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important; height: 36px !important; width: 36px !important; min-height: 36px !important; min-width: 36px !important; display: flex !important; align-items: center !important; justify-content: center !important; border: none !important; color: #1E5AA0 !important; }
+.listen-all-btn::before { content: "🎵"; font-size: 1rem !important; line-height: 1 !important; }
+.mobile-menu-toggle { position: fixed !important; top: 14px !important; right: 12px !important; z-index: 1700 !important; height: 36px !important; width: 36px !important; font-size: 1.15rem !important; display: flex !important; align-items: center !important; justify-content: center !important; background: white !important; color: #1E5AA0 !important; border: 2px solid #D4AF37 !important; border-radius: 50% !important; cursor: pointer; box-shadow: 0 3px 12px rgba(0,0,0,0.15); }
+main { flex-direction: column !important; }
+#sidebar { position: fixed !important; top: 0; left: 0; width: 85% !important; max-width: 320px; height: 100vh !important; z-index: 2000; transform: translateX(-100%); transition: transform 0.3s ease; box-shadow: 4px 0 20px rgba(0,0,0,0.15); overflow-y: auto !important; padding-top: 60px; background: white; }
+#sidebar.mobile-open { transform: translateX(0); }
+#map { flex: 1 !important; width: 100% !important; height: calc(100vh - 60px) !important; order: 1; }
+#detail-panel { position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; max-width: 100% !important; max-height: 85vh !important; z-index: 1500; border-radius: 20px 20px 0 0 !important; box-shadow: 0 -8px 28px rgba(0,0,0,0.2) !important; transform: translateY(100%); transition: transform 0.3s ease; display: block !important; overflow-y: auto !important; }
+#detail-panel.active { transform: translateY(0); }
+#detail-panel::before { content: ""; position: sticky; top: 0; display: block; width: 40px; height: 4px; background: rgba(0,0,0,0.15); border-radius: 2px; margin: 8px auto 0; z-index: 10; }
+#journey-panel { bottom: 12px !important; left: 12px !important; right: 12px !important; width: auto !important; max-width: none !important; z-index: 900; }
+#journey-panel:not(.expanded) .journey-buttons { display: none !important; }
+#journey-panel:not(.expanded) { padding: 10px 14px !important; }
+#journey-panel:not(.expanded) .journey-header { margin-bottom: 0 !important; border-bottom: none !important; padding-bottom: 0 !important; }
+#journey-panel.expanded { padding: 12px !important; }
+#journey-panel.expanded .journey-buttons { display: grid !important; grid-template-columns: 1fr 1fr; gap: 6px !important; }
+#journey-panel .journey-btn { padding: 6px 8px !important; font-size: 0.68rem !important; min-height: 42px; }
+#journey-panel .journey-btn small { font-size: 0.58rem !important; }
+.leaflet-bottom.leaflet-right { bottom: 68px !important; }
+.posture-pills { top: 60px !important; }
+.popup-header { padding: 22px 16px 16px 16px !important; }
+.popup-title { font-size: 1.05rem !important; line-height: 1.25 !important; }
+.popup-title-ta { font-size: 0.9rem !important; margin-bottom: 10px !important; }
+.popup-location { font-size: 0.78rem !important; }
+.popup-location + div { font-size: 0.62rem !important; padding: 3px 10px !important; }
+.popup-badges { padding: 12px 16px !important; gap: 5px !important; }
+.badge { font-size: 0.62rem !important; padding: 4px 9px !important; }
+.coord-row { padding: 12px 16px 6px !important; }
+.coord-text { font-size: 0.85rem !important; }
+.coord-btn { padding: 4px 10px !important; font-size: 0.7rem !important; min-height: 32px; }
+.map-actions { padding: 10px 16px 14px !important; gap: 5px !important; }
+.map-btn { padding: 8px 3px !important; font-size: 0.58rem !important; min-height: 48px !important; }
+.map-btn-icon { font-size: 1.05rem !important; }
+.tabs { padding: 0 4px !important; }
+.tab { padding: 8px 2px !important; font-size: 0.72rem !important; min-height: 44px !important; }
+.tab-icon { font-size: 1rem !important; }
+.tab-panels { padding: 14px 16px !important; }
+#detail-panel .tab-panel { font-size: 0.82rem !important; }
+#detail-panel .tab-panel p { font-size: 0.82rem !important; }
+#detail-panel .tab-panel h1, #detail-panel .tab-panel h2, #detail-panel .tab-panel h3, #detail-panel .tab-panel .panel-title { font-size: 0.92rem !important; }
+#detail-panel .tab-panel [class*="listen-title"], #detail-panel .tab-panel [class*="related-title"] { font-size: 0.86rem !important; }
+#detail-panel .tab-panel table { font-size: 0.72rem !important; }
+#detail-panel .tab-panel table th { font-size: 0.62rem !important; padding: 5px 6px !important; }
+#detail-panel .tab-panel table td { font-size: 0.72rem !important; padding: 5px 6px !important; }
+footer { padding: 12px 16px !important; font-size: 0.7rem !important; }
+footer div { font-size: 0.7rem !important; }
+}
+.mobile-menu-toggle { display: none; }
+/* PHASE 1 END */
+
+/* GOAL 2 START: Related Tab CTAs */
+.related-link, [class*="related-item"] { position: relative; padding-bottom: 52px !important; transition: all 0.2s ease; cursor: pointer; }
+.related-link > div:last-child:not([class]), .related-link > span:last-child, [class*="related-item"] > div:last-child:not([class]) { display: none !important; }
+.related-link::after, [class*="related-item"]::after { content: attr(data-cta) " ›"; position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; padding: 6px 18px; border: 1.5px solid #1E5AA0; border-radius: 20px; color: #1E5AA0; background: white; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; font-family: "Inter", -apple-system, sans-serif; transition: all 0.2s ease; white-space: nowrap; }
+.related-link[data-type="compare"]::after, [class*="related-item"][data-type="compare"]::after { border-color: #D4AF37 !important; color: #B8971D !important; }
+.related-link[data-type="share"]::after, [class*="related-item"][data-type="share"]::after { border-color: #4A148C !important; color: #4A148C !important; }
+.related-link:hover::after, [class*="related-item"]:hover::after { background: #1E5AA0; color: white !important; transform: translateX(-50%) translateY(-1px); box-shadow: 0 4px 12px rgba(30, 90, 160, 0.25); }
+.related-link[data-type="compare"]:hover::after, [class*="related-item"][data-type="compare"]:hover::after { background: #D4AF37 !important; color: white !important; border-color: #D4AF37 !important; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35); }
+.related-link[data-type="share"]:hover::after, [class*="related-item"][data-type="share"]:hover::after { background: #4A148C !important; color: white !important; border-color: #4A148C !important; box-shadow: 0 4px 12px rgba(74, 20, 140, 0.3); }
+.related-link:hover, [class*="related-item"]:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); }
+@media (max-width: 900px) {
+  .related-link::after, [class*="related-item"]::after { position: absolute !important; top: 50% !important; right: 12px !important; bottom: auto !important; left: auto !important; transform: translateY(-50%) !important; content: "›" !important; padding: 0 !important; border: none !important; background: transparent !important; color: rgba(0, 0, 0, 0.35) !important; font-size: 1.5rem !important; font-weight: 400 !important; letter-spacing: 0 !important; text-transform: none !important; box-shadow: none !important; }
+  .related-link[data-type="compare"]::after, [class*="related-item"][data-type="compare"]::after { color: #B8971D !important; }
+  .related-link[data-type="share"]::after, [class*="related-item"][data-type="share"]::after { color: #4A148C !important; }
+  .related-link, [class*="related-item"] { padding-bottom: 14px !important; padding-right: 40px !important; }
+  .related-link:active::after, [class*="related-item"]:active::after { transform: translateY(-50%) translateX(5px) !important; color: #1E5AA0 !important; }
+  .related-link:active, [class*="related-item"]:active { transform: scale(0.97) !important; background: rgba(30, 90, 160, 0.06) !important; }
+}
+/* GOAL 2 END */
+
+/* LANGUAGE TOGGLE START */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  border-radius: 20px;
+  padding: 2px;
+  margin-right: 12px;
+  height: 32px;
+  font-family: "Inter", sans-serif;
+  flex-shrink: 0;
+}
+.lang-toggle button {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.75);
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+.lang-toggle button.active {
+  background: #D4AF37;
+  color: #1A1A3A;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.lang-toggle button.tamil {
+  font-family: "Noto Serif Tamil", "Latha", serif;
+  font-size: 0.85rem;
+}
+.lang-toggle button:hover:not(.active) { color: white; }
+
+/* When Tamil mode active on body */
+body.lang-ta [data-lang-only="en"] { display: none !important; }
+body.lang-en [data-lang-only="ta"] { display: none !important; }
+
+/* Tamil rendering for popup titles when applicable */
+body.lang-ta .popup-title-ta { display: block !important; }
+
+/* Mobile compact toggle */
+@media (max-width: 900px) {
+  .lang-toggle {
+    position: fixed !important;
+    top: 14px !important;
+    right: 104px !important;
+    z-index: 1650 !important;
+    margin-right: 0 !important;
+    height: 36px !important;
+    background: rgba(30, 90, 160, 0.92) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .lang-toggle button {
+    padding: 3px 9px !important;
+    font-size: 0.66rem !important;
+  }
+  .lang-toggle button.tamil { font-size: 0.78rem !important; }
+}
+/* LANGUAGE TOGGLE END */
+
+
+/* OPTION2_SIDEBAR_CSS_v1 — Search + Filter Chips + Nadu Badges */
+.dd-search-wrapper {
+  position: relative;
+  padding: 12px 12px 8px 12px;
+  background: white;
+  border-bottom: 1px solid #E8DCC0;
+}
+.dd-search-icon {
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-25%);
+  font-size: 0.9rem;
+  color: #6B7280;
+  pointer-events: none;
+  z-index: 1;
+}
+.dd-search-input {
+  width: 100%;
+  padding: 8px 34px 8px 34px;
+  border: 1.5px solid #E8DCC0;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #FEF9EA;
+  color: #1A1A3A;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+}
+.dd-search-input:focus {
+  outline: none;
+  border-color: #1E5AA0;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(30,90,160,0.1);
+}
+.dd-search-input::placeholder {
+  color: #9CA3AF;
+  font-size: 0.8rem;
+}
+.dd-search-clear {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-25%);
+  background: rgba(0,0,0,0.08);
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: #4B5563;
+  padding: 0;
+}
+.dd-search-clear:hover {
+  background: rgba(0,0,0,0.15);
+}
+
+.dd-chip-row {
+  padding: 8px 12px 12px 12px;
+  background: white;
+  border-bottom: 1px solid #F0E8D3;
+}
+.dd-chip-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #6B7280;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+.dd-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.dd-chip {
+  padding: 4px 10px;
+  border: 1.5px solid #E8DCC0;
+  border-radius: 12px;
+  background: white;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #4B5563;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: 'Inter', -apple-system, sans-serif;
+  white-space: nowrap;
+}
+.dd-chip:hover {
+  border-color: var(--chip-color, #1E5AA0);
+  color: var(--chip-color, #1E5AA0);
+}
+.dd-chip-active {
+  background: #1E5AA0;
+  color: white;
+  border-color: #1E5AA0;
+}
+.dd-chip-active:hover {
+  color: white;
+  background: #164574;
+}
+.dd-chip-abhimana {
+  border-color: #D4AF37;
+  color: #B8971D;
+  background: #FEF9EA;
+}
+.dd-chip-abhimana.dd-chip-active {
+  background: #D4AF37;
+  color: #1A1A3A;
+  border-color: #D4AF37;
+}
+.dd-chip-abhimana:hover {
+  border-color: #C89932;
+  color: #C89932;
+}
+
+.dd-temple-list {
+  overflow-y: auto;
+}
+.dd-temple-entry {
+  padding: 10px 12px;
+  border-bottom: 1px solid #F0E8D3;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.dd-temple-entry:hover {
+  background: #FEF9EA;
+}
+.dd-abhimana-entry {
+  background: linear-gradient(to right, rgba(218,165,32,0.05), transparent);
+}
+.dd-abhimana-entry:hover {
+  background: linear-gradient(to right, rgba(218,165,32,0.12), rgba(218,165,32,0.03));
+}
+.dd-temple-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dd-temple-badge {
+  color: white;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  min-width: 26px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.dd-temple-info {
+  flex: 1;
+  min-width: 0;
+}
+.dd-temple-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1A1A3A;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dd-temple-town {
+  font-size: 0.7rem;
+  color: #6B7280;
+  margin-top: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dd-nadu-badge {
+  padding: 2px 7px;
+  border-radius: 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border: 1px solid;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.dd-empty-state {
+  padding: 40px 20px;
+  text-align: center;
+  color: #6B7280;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .dd-search-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 10px;
+  }
+  .dd-chip-row {
+    padding: 6px 10px 10px 10px;
+  }
+  .dd-chip {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+  }
+  .dd-nadu-badge {
+    font-size: 0.55rem;
+  }
+}
+
+
+/* STEP_4_5_FIXES — Temple name readability + chip layout polish */
+.dd-temple-name {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  line-height: 1.3 !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.dd-temple-town {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  line-height: 1.35 !important;
+}
+
+.dd-temple-row {
+  align-items: flex-start !important;
+  padding: 2px 0;
+}
+
+.dd-temple-badge {
+  margin-top: 2px;
+}
+
+.dd-nadu-badge {
+  margin-top: 3px;
+  max-width: 80px;
+  text-align: center;
+  line-height: 1.2;
+  padding: 3px 6px !important;
+}
+
+/* Wider chip visibility */
+.dd-temple-entry {
+  padding: 12px 12px !important;
+}
+
+@media (max-width: 900px) {
+  .dd-nadu-badge {
+    max-width: 60px;
+    font-size: 0.52rem !important;
+    padding: 2px 4px !important;
+  }
+  .dd-temple-name {
+    font-size: 0.86rem !important;
+  }
+  .dd-temple-town {
+    font-size: 0.72rem !important;
+  }
+}
+
+
+/* STEP_4_6_CSS_FIX — Fix mid-word breaks + Nadu pill overflow */
+.dd-temple-name {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  line-height: 1.3 !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+.dd-temple-town {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  line-height: 1.35 !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+.dd-nadu-badge {
+  max-width: none !important;
+  min-width: 45px;
+  padding: 3px 8px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  flex-shrink: 1;
+  align-self: flex-start;
+  margin-top: 3px;
+}
+
+.dd-temple-info {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+@media (max-width: 900px) {
+  .dd-nadu-badge {
+    max-width: 100px !important;
+    font-size: 0.55rem !important;
+    padding: 2px 6px !important;
+  }
+  .dd-temple-name {
+    font-size: 0.85rem !important;
+  }
+}
+
+
+/* STEP_4_10_LAYOUT_FIX — Fix temple name / Nadu pill collision */
+.dd-temple-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  width: 100%;
+}
+
+.dd-temple-badge {
+  flex: 0 0 auto !important;
+  margin-top: 2px;
+}
+
+.dd-temple-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: hidden;
+}
+
+.dd-nadu-badge {
+  flex: 0 0 auto !important;
+  max-width: 90px !important;
+  min-width: auto !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  padding: 3px 8px !important;
+  align-self: flex-start;
+  margin-top: 3px;
+}
+
+.dd-temple-name {
+  overflow-wrap: break-word;
+}
+
+/* Cleaner search wrapper without title above */
+.dd-search-wrapper {
+  padding-top: 14px !important;
+}
+
+@media (max-width: 900px) {
+  .dd-temple-row {
+    gap: 8px !important;
+  }
+  .dd-nadu-badge {
+    max-width: 75px !important;
+    font-size: 0.55rem !important;
+    padding: 2px 6px !important;
+  }
+}
+
+
+/* STEP_4_11_STACKED_LAYOUT — Nadu pill below temple name (frees name column width) */
+
+/* Desktop: pill sits below temple info, aligned left */
+.dd-temple-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  width: 100%;
+}
+
+.dd-temple-badge {
+  flex: 0 0 auto !important;
+  margin-top: 2px;
+}
+
+.dd-temple-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px;
+}
+
+.dd-temple-name {
+  font-size: 0.86rem !important;
+  font-weight: 600 !important;
+  color: #1A1A3A !important;
+  line-height: 1.3 !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  text-overflow: unset !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.dd-temple-town {
+  font-size: 0.72rem !important;
+  color: #6B7280 !important;
+  line-height: 1.35 !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  text-overflow: unset !important;
+  word-wrap: normal !important;
+}
+
+/* Nadu badge as its own row below the info */
+.dd-nadu-badge {
+  display: inline-block !important;
+  align-self: flex-start !important;
+  max-width: 100% !important;
+  min-width: auto !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  padding: 2px 8px !important;
+  margin: 4px 0 0 0 !important;
+  font-size: 0.58rem !important;
+  border-radius: 6px !important;
+  order: 3 !important;
+}
+
+/* Mobile keeps side-by-side (already works well there) */
+@media (min-width: 901px) {
+  /* Desktop-only: badge as own row */
+  .dd-temple-info {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Mobile: revert to inline-right badge */
+  .dd-temple-row {
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+  .dd-temple-info {
+    display: block !important;
+  }
+  .dd-nadu-badge {
+    float: right;
+    margin: 3px 0 0 8px !important;
+    max-width: 80px !important;
+    font-size: 0.55rem !important;
+    order: unset !important;
+  }
+}
+
+
+/* STEP_4_12_COMPACT — Compact desktop badges, full labels on mobile */
+.dd-temple-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100%;
+}
+
+.dd-temple-badge {
+  flex: 0 0 auto !important;
+}
+
+.dd-temple-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: block !important;
+}
+
+.dd-temple-name {
+  font-size: 0.86rem !important;
+  font-weight: 600 !important;
+  color: #1A1A3A !important;
+  line-height: 1.3 !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  text-overflow: unset !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.dd-temple-town {
+  font-size: 0.72rem !important;
+  color: #6B7280 !important;
+  line-height: 1.35 !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  margin-top: 2px !important;
+}
+
+.dd-nadu-badge {
+  flex: 0 0 auto !important;
+  min-width: auto !important;
+  border: 1.5px solid !important;
+  align-self: center !important;
+  cursor: help;
+}
+
+/* Desktop: show abbreviation only */
+.dd-nadu-abbrev {
+  display: inline;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 4px 7px;
+  border-radius: 6px;
+}
+.dd-nadu-full {
+  display: none;
+}
+
+@media (min-width: 901px) {
+  .dd-nadu-badge {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  .dd-nadu-full {
+    display: none !important;
+  }
+  .dd-nadu-abbrev {
+    display: inline-block !important;
+    background: inherit;
+    color: inherit;
+    border: 1.5px solid;
+    border-color: inherit;
+  }
+}
+
+/* Mobile: show full name, hide abbreviation */
+@media (max-width: 900px) {
+  .dd-nadu-badge {
+    padding: 3px 8px !important;
+    max-width: 100px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    border-radius: 8px !important;
+    align-self: flex-start !important;
+    margin-top: 3px !important;
+    font-size: 0.55rem !important;
+  }
+  .dd-nadu-abbrev {
+    display: none !important;
+  }
+  .dd-nadu-full {
+    display: inline !important;
+    font-size: 0.55rem !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* Fix inherit issue on desktop by setting explicit style */
+@media (min-width: 901px) {
+  .dd-nadu-badge .dd-nadu-abbrev {
+    background: var(--badge-bg, rgba(30,90,160,0.12));
+    color: var(--badge-color, #1E5AA0);
+    border-color: var(--badge-border, rgba(30,90,160,0.35));
+  }
+}
+
+
+/* STEP_4_13_FIXES — Fix desktop badge colors + allow long names to wrap gracefully */
+
+/* Desktop: badge colors — apply inline style from JS directly to the parent, don't override */
+@media (min-width: 901px) {
+  .dd-nadu-badge {
+    padding: 4px 8px !important;
+    background: transparent !important;
+    border: 1.5px solid !important;
+    border-radius: 6px !important;
+    font-size: 0.7rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+    display: inline-block !important;
+    align-self: center !important;
+    /* Border color comes from inline style set by JS */
+  }
+  
+  .dd-nadu-full {
+    display: none !important;
+  }
+  
+  .dd-nadu-abbrev {
+    display: inline !important;
+    background: transparent !important;
+    color: inherit !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}
+
+/* Long name wrap — allow break at any width without ugly mid-word breaks */
+.dd-temple-name {
+  overflow: visible !important;
+  white-space: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  hyphens: none !important;
+  line-height: 1.3 !important;
+  padding-right: 4px;
+}
+
+/* Prevent super-narrow name column by giving it minimum space */
+@media (min-width: 901px) {
+  .dd-temple-info {
+    flex: 1 1 auto !important;
+    min-width: 120px !important;
+    padding-right: 4px;
+  }
+  .dd-temple-name {
+    font-size: 0.85rem !important;
+  }
+}
+
+
+/* STEP_4_14_TIGHT_BADGE — Tighter desktop badge to give name column more room */
+@media (min-width: 901px) {
+  .dd-temple-row {
+    gap: 6px !important;
+  }
+  .dd-nadu-badge {
+    padding: 3px 6px !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0 !important;
+    font-weight: 700 !important;
+    flex-shrink: 0;
+  }
+  .dd-temple-info {
+    min-width: 150px !important;
+    padding-right: 2px;
+  }
+  .dd-temple-name {
+    font-size: 0.83rem !important;
+    letter-spacing: -0.01em;
+  }
+  .dd-temple-entry {
+    padding: 10px 10px !important;
+  }
+  .dd-temple-badge {
+    padding: 2px 5px !important;
+    min-width: 24px;
+    font-size: 0.68rem !important;
+  }
+}
+
+
+/* STEP_4_15_BADGE_VISIBLE — Guarantee Nadu badge is fully rendered */
+@media (min-width: 901px) {
+  /* Reset name column min-width — let it shrink naturally */
+  .dd-temple-info {
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+    padding-right: 4px !important;
+    overflow: hidden;
+  }
+  
+  /* Badge gets guaranteed space, never shrinks or clips */
+  .dd-nadu-badge {
+    flex: 0 0 auto !important;
+    min-width: 34px !important;
+    max-width: 44px !important;
+    padding: 3px 6px !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    align-self: center !important;
+    margin-left: auto;
+    margin-right: 4px;
+  }
+  
+  /* Row layout: ensure everything fits within container */
+  .dd-temple-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .dd-temple-entry {
+    padding: 10px 12px !important;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  
+  .dd-temple-badge {
+    flex: 0 0 auto !important;
+    padding: 2px 5px !important;
+    min-width: 24px;
+    font-size: 0.68rem !important;
+  }
+  
+  .dd-temple-name {
+    font-size: 0.83rem !important;
+    letter-spacing: -0.005em;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word;
+  }
+  
+  .dd-temple-town {
+    font-size: 0.7rem !important;
+  }
+}
+
+
+/* STEP_5_MAP_MARKERS — Circular temple markers + gold cluster badges */
+.dd-map-marker-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+.dd-map-marker {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2.5px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  color: white;
+  font-weight: 700;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, sans-serif;
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+.dd-map-marker:hover {
+  transform: scale(1.18);
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+}
+.dd-cluster-wrapper {
+  background: transparent !important;
+  border: none !important;
+}
+.dd-cluster-marker {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E8C567 0%, #C89932 100%);
+  border: 2.5px solid white;
+  color: #1A1A3A;
+  font-weight: 800;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35);
+  font-family: 'Inter', -apple-system, sans-serif;
+  transition: transform 0.15s ease;
+  cursor: pointer;
+}
+.dd-cluster-marker:hover {
+  transform: scale(1.12);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+}
+.leaflet-tooltip.dd-map-tooltip {
+  background: white;
+  border: 1.5px solid #E8DCC0;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #1A1A3A;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+.leaflet-tooltip.dd-map-tooltip::before {
+  border-top-color: #E8DCC0;
+}
+/* Ensure marker cluster plugin's default cluster styles don't override ours */
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background-color: transparent !important;
+}
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background-color: transparent !important;
+}
+
+
+/* STEP_5_4_FULL_FEATURE — Pulse + preview + sidebar highlight + Nadu clusters + disambiguation */
+
+/* === PULSE ANIMATION ON SELECTED MARKER === */
+.dd-map-marker-selected {
+  position: relative;
+}
+.dd-map-marker-selected::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid #D4AF37;
+  transform: translate(-50%, -50%);
+  animation: dd-marker-pulse 1.2s ease-out;
+  animation-iteration-count: 4;
+  pointer-events: none;
+  opacity: 0;
+}
+@keyframes dd-marker-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* === SIDEBAR HIGHLIGHT === */
+.dd-temple-entry.dd-entry-highlighted {
+  background: linear-gradient(90deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.05) 100%) !important;
+  border-left: 3px solid #D4AF37;
+  padding-left: 9px !important;
+}
+.dd-temple-entry.dd-entry-highlighted:hover {
+  background: linear-gradient(90deg, rgba(212,175,55,0.25) 0%, rgba(212,175,55,0.08) 100%) !important;
+}
+
+/* === CLUSTER DISAMBIGUATION (Approach D + subtle A) ===
+   - Larger size (44px vs 32px individual markers)
+   - Double-ring border (outer white + inner Nadu color)
+   - Bolder, larger number
+   - Subtle inner shadow for depth (looks like layered coins)
+   - Lighter Nadu-tinted background
+*/
+.dd-cluster-marker {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #1A1A3A;
+  font-weight: 900;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, sans-serif;
+  transition: transform 0.15s ease;
+  cursor: pointer;
+  /* Double ring: outer white via box-shadow, inner colored via border */
+  border: 3px solid #A89370;
+  background: linear-gradient(135deg, #F5EBD3 0%, #E8DCC0 100%);
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #A89370,
+    inset 0 -2px 4px rgba(0,0,0,0.15),
+    0 3px 10px rgba(0,0,0,0.35);
+  position: relative;
+}
+.dd-cluster-marker:hover {
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #A89370,
+    inset 0 -2px 4px rgba(0,0,0,0.15),
+    0 5px 16px rgba(0,0,0,0.45);
+}
+
+/* Nadu-tinted cluster backgrounds — colored border matches individual marker color */
+.dd-cluster-chola {
+  background: linear-gradient(135deg, #D4E2F2 0%, #A8C4E1 100%);
+  border-color: #1E5AA0;
+  color: #0F2D50;
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #1E5AA0,
+    inset 0 -2px 4px rgba(30,90,160,0.2),
+    0 3px 10px rgba(0,0,0,0.35);
+}
+.dd-cluster-chola:hover {
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #1E5AA0,
+    inset 0 -2px 4px rgba(30,90,160,0.2),
+    0 5px 16px rgba(0,0,0,0.45);
+}
+
+.dd-cluster-thondai {
+  background: linear-gradient(135deg, #D5E4D6 0%, #A5C4A8 100%);
+  border-color: #4A7C4E;
+  color: #22391C;
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #4A7C4E,
+    inset 0 -2px 4px rgba(74,124,78,0.2),
+    0 3px 10px rgba(0,0,0,0.35);
+}
+.dd-cluster-thondai:hover {
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #4A7C4E,
+    inset 0 -2px 4px rgba(74,124,78,0.2),
+    0 5px 16px rgba(0,0,0,0.45);
+}
+
+.dd-cluster-pandya {
+  background: linear-gradient(135deg, #F5DDBB 0%, #E5BC8A 100%);
+  border-color: #B8710A;
+  color: #5C3400;
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #B8710A,
+    inset 0 -2px 4px rgba(184,113,10,0.25),
+    0 3px 10px rgba(0,0,0,0.35);
+}
+.dd-cluster-pandya:hover {
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #B8710A,
+    inset 0 -2px 4px rgba(184,113,10,0.25),
+    0 5px 16px rgba(0,0,0,0.45);
+}
+
+.dd-cluster-malai {
+  background: linear-gradient(135deg, #C8E0E3 0%, #92BFC4 100%);
+  border-color: #0F6B70;
+  color: #063033;
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #0F6B70,
+    inset 0 -2px 4px rgba(15,107,112,0.2),
+    0 3px 10px rgba(0,0,0,0.35);
+}
+.dd-cluster-malai:hover {
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #0F6B70,
+    inset 0 -2px 4px rgba(15,107,112,0.2),
+    0 5px 16px rgba(0,0,0,0.45);
+}
+
+.dd-cluster-vada {
+  background: linear-gradient(135deg, #D7C2E3 0%, #B08FC9 100%);
+  border-color: #4A148C;
+  color: #260847;
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #4A148C,
+    inset 0 -2px 4px rgba(74,20,140,0.25),
+    0 3px 10px rgba(0,0,0,0.35);
+}
+.dd-cluster-vada:hover {
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #4A148C,
+    inset 0 -2px 4px rgba(74,20,140,0.25),
+    0 5px 16px rgba(0,0,0,0.45);
+}
+
+.dd-cluster-nadu {
+  background: linear-gradient(135deg, #DFD8ED 0%, #B8ADD9 100%);
+  border-color: #6B5DB8;
+  color: #302A5C;
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #6B5DB8,
+    inset 0 -2px 4px rgba(107,93,184,0.2),
+    0 3px 10px rgba(0,0,0,0.35);
+}
+.dd-cluster-nadu:hover {
+  box-shadow: 
+    0 0 0 3px white,
+    0 0 0 4px #6B5DB8,
+    inset 0 -2px 4px rgba(107,93,184,0.2),
+    0 5px 16px rgba(0,0,0,0.45);
+}
+
+/* === HOVER PREVIEW CARD (desktop only) === */
+.dd-map-preview-popup .leaflet-popup-content-wrapper {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  padding: 0;
+  overflow: hidden;
+}
+.dd-map-preview-popup .leaflet-popup-content {
+  margin: 0;
+  padding: 0;
+  width: 280px !important;
+}
+.dd-map-preview-popup .leaflet-popup-tip {
+  background: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.dd-preview-card {
+  padding: 14px 16px;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+.dd-preview-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.dd-preview-card-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.dd-preview-card-titles {
+  flex: 1;
+  min-width: 0;
+}
+.dd-preview-card-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1A1A3A;
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+.dd-preview-card-town {
+  font-size: 0.72rem;
+  color: #6B7280;
+  line-height: 1.3;
+}
+.dd-preview-card-nadu {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  margin-top: 4px;
+  border: 1.5px solid;
+}
+.dd-preview-card-tagline {
+  font-size: 0.72rem;
+  color: #4B5563;
+  line-height: 1.45;
+  padding-top: 8px;
+  margin-top: 8px;
+  border-top: 1px solid #F0E8D3;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .dd-map-preview-popup {
+    display: none !important;
+  }
+  /* Smaller clusters on mobile but keep disambiguation */
+  .dd-cluster-marker {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+<div class="hdr-row">
+<div class="hdr-brand">
+<div class="hdr-brand-icon">🕉️</div>
+<div class="hdr-brand-text">
+<h1>108 Divya Desams</h1>
+<div class="tagline">Sacred Abodes of Maha Vishnu</div>
+</div></div>
+<nav class="hdr-nav">
+<a href="#" class="active">Home</a>
+<a href="#">All 108 Temples</a>
+<a href="#">By Nadu</a>
+<a href="#">By Alwar</a>
+<a href="#">By Posture</a>
+<a href="#">Divine Realms</a>
+<a href="#">Alwar Journeys</a>
+<a href="#">About</a>
+</nav>
+<button class="listen-all-btn">🎵 Listen All</button>
+</div>
+<div class="lang-toggle" role="group" aria-label="Language toggle"><button id="lang-en" class="active" onclick="switchLanguage('en')" aria-label="English">EN</button><button id="lang-ta" class="tamil" onclick="switchLanguage('ta')" aria-label="Tamil">தமிழ்</button></div>
+      </header>
+<main>
+<aside id="sidebar">
+<div id="temple-list"></div>
+</aside>
+<div id="map">
+<div class="posture-pills">
+<button class="posture-pill active" data-posture="all">All 108</button>
+<button class="posture-pill" data-posture="Nindra">🧍 Standing</button>
+<button class="posture-pill" data-posture="Veetrirundha">🪑 Sitting</button>
+<button class="posture-pill" data-posture="Kidantha">🛌 Reclining</button>
+</div>
+</div>
+<aside id="detail-panel"></aside>
+</main>
+<div id="journey-panel">
+<div class="journey-header">
+<div class="journey-title">🚶 Trace Alwar Pilgrimage</div>
+<button class="journey-minimize" id="journey-minimize-btn" title="Minimize panel">-</button>
+</div>
+<div class="journey-buttons">
+<button class="journey-btn" data-alwar="nammalvar">🌸 Nammalvar<small>37 Divya Desams</small></button>
+<button class="journey-btn" data-alwar="thirumangai">⭐ Thirumangai<small>86 Divya Desams</small></button>
+<button class="journey-btn" data-alwar="andal">🌺 Andal<small>13 Divya Desams</small></button>
+<button class="journey-btn" data-alwar="clear">✕ Clear</button>
+</div>
+</div>
+<footer>
+<div class="footer-om">ஓம் நமோ நாராயணா</div>
+<div>Sources: Wikipedia · Aanmegam · Divyadesam.org · TRSIyengar · TTD · KOYIL</div>
+<div style="margin-top:8px">Open source (MIT) · <a href="https://github.com/gurusubbaraman/DivyaDesams" target="_blank">GitHub</a></div>
+</footer>
+<script>
+function initMap(){
+if(typeof L==='undefined'){console.log('[map] Waiting for Leaflet...');setTimeout(initMap,100);return;}
+console.log('[map] Leaflet loaded — initializing map');
+try{
+window.leafletMap=L.map('map',{zoomControl:false}).setView([13.5,79.5],6);
+L.control.zoom({position:'bottomright'}).addTo(window.leafletMap);
+var baseMaps={
+'Streets (OSM)':L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:19}),
+'Satellite (Esri)':L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution:'Tiles © Esri, Maxar, Earthstar Geographics',maxZoom:19}),
+'National Geographic':L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}',{attribution:'Tiles © Esri National Geographic',maxZoom:16})
+};
+baseMaps['Streets (OSM)'].addTo(window.leafletMap);
+L.control.layers(baseMaps,null,{position:'topright',collapsed:true}).addTo(window.leafletMap);
+console.log('[map] ✅ Map initialized successfully');
+}catch(e){console.error('[map] ❌ Init failed:',e.message);}
+}
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',initMap);}else{initMap();}
+</script>
+<script src="dd_v1_patch.js?v=step5.5.5.5.4.3.13.12.11.10.8"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var btn = document.getElementById("journey-minimize-btn");
+  var panel = document.getElementById("journey-panel");
+  if (btn && panel) {
+    btn.addEventListener("click", function() {
+      var isMin = panel.classList.toggle("minimized");
+      btn.textContent = isMin ? "+" : "-";
+      btn.title = isMin ? "Expand panel" : "Minimize panel";
+      console.log("[journey-panel] Toggled to: " + (isMin ? "minimized" : "expanded"));
+    });
+    console.log("[journey-panel] Minimize handler attached");
+  }
+});
+</script>
+
+<script>
+/* PHASE 1 MOBILE INTERACTIONS */
+(function(){
+  'use strict';
+  
+  if (!document.querySelector(".mobile-menu-toggle")) {
+    var btn = document.createElement("button");
+    btn.className = "mobile-menu-toggle";
+    btn.innerHTML = "☰";
+    btn.setAttribute("aria-label", "Toggle menu");
+    btn.onclick = function() {
+      var sb = document.getElementById("sidebar");
+      if (sb) sb.classList.toggle("mobile-open");
+    };
+    document.body.appendChild(btn);
+  }
+  
+  var sidebar = document.getElementById("sidebar");
+  if (sidebar) {
+    sidebar.addEventListener("click", function(e) {
+      var el = e.target;
+      while (el && el !== sidebar) {
+        var onc = el.getAttribute && el.getAttribute("onclick");
+        if (onc && onc.indexOf("openTemplePopup") !== -1) {
+          if (window.innerWidth < 900) {
+            setTimeout(function() { sidebar.classList.remove("mobile-open"); }, 150);
+          }
+          break;
+        }
+        el = el.parentElement;
+      }
+    });
+  }
+  
+document.addEventListener("click", function(e) {
+    /* STEP_4_7_CAPTURE_MARK — install capture-phase marker (survives DOM re-render) */
+    if (!window._sidebarCaptureInstalled) {
+      window._sidebarCaptureInstalled = true;
+      var _sb = document.getElementById("sidebar");
+      if (_sb) {
+        _sb.addEventListener("click", function(evt) {
+          evt._handledBySidebar = true;
+        }, true);
+      }
+    }
+
+    /* STEP_4_5_FIXES — properly check if click is outside sidebar */
+    if (window.innerWidth < 900 && sidebar && sidebar.classList.contains("mobile-open")) {
+      /* STEP_4_7_CAPTURE_MARK — check event marking that survives DOM re-render */
+      var ham = document.querySelector(".mobile-menu-toggle");
+      var isMarkedInSidebar = e._handledBySidebar === true;
+      var isInSidebar = sidebar.contains(e.target);
+      var isOnHamburger = ham && ham.contains(e.target);
+      
+      // Only close if click was OUTSIDE sidebar AND outside hamburger
+      // Marking survives DOM re-render (chip click destroys clicked element before document listener runs)
+      if (!isMarkedInSidebar && !isInSidebar && !isOnHamburger) {
+        sidebar.classList.remove("mobile-open");
+      }
+    }
+  });
+  
+  function initJourney() {
+    var panel = document.getElementById("journey-panel");
+    var jbtn = document.getElementById("journey-minimize-btn");
+    if (!panel || !jbtn) { setTimeout(initJourney, 100); return; }
+    if (window.innerWidth < 900) {
+      panel.classList.remove("expanded");
+      jbtn.textContent = "+";
+    } else {
+      panel.classList.add("expanded");
+      jbtn.textContent = "−";
+    }
+    var freshBtn = jbtn.cloneNode(true);
+    jbtn.parentNode.replaceChild(freshBtn, jbtn);
+    freshBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      var ex = panel.classList.toggle("expanded");
+      freshBtn.textContent = ex ? "−" : "+";
+    });
+  }
+  
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initJourney);
+  } else {
+    initJourney();
+  }
+  
+  var resizeTO;
+  window.addEventListener("resize", function() {
+    clearTimeout(resizeTO);
+    resizeTO = setTimeout(initJourney, 200);
+  });
+})();
+</script>
+
+<script>
+/* GOAL 2: Related tab CTA tagger */
+(function() {
+  function tagRelatedCards() {
+    var cards = document.querySelectorAll(".related-link, [class*=\"related-item\"]");
+    if (cards.length === 0) return;
+    cards.forEach(function(card) {
+      if (card.hasAttribute("data-cta")) return;
+      var text = (card.textContent || "").toLowerCase();
+      var type = "default";
+      var cta = "Explore All";
+      if (text.indexOf("compare") !== -1) {
+        type = "compare"; cta = "Compare Side-By-Side";
+      } else if (text.indexOf("share") !== -1) {
+        type = "share"; cta = "Share This Temple";
+      } else {
+        var numMatch = text.match(/(\d+)\s+(pancha|swayamvyakta|andal|thiruppavai|krishnam|naranyam|kanchi|rangam|divya)/i);
+        var otherMatch = text.match(/other\s+(\d+)\s+temples/i);
+        if (numMatch) cta = "Explore " + numMatch[1] + " Temples";
+        else if (otherMatch) cta = "View All " + otherMatch[1];
+      }
+      card.setAttribute("data-type", type);
+      card.setAttribute("data-cta", cta);
+    });
+  }
+  
+  var panel = document.getElementById("detail-panel");
+  if (panel) {
+    var observer = new MutationObserver(function() {
+      setTimeout(tagRelatedCards, 50);
+    });
+    observer.observe(panel, { childList: true, subtree: true });
+  }
+  
+  if (document.readyState !== "loading") {
+    tagRelatedCards();
+  } else {
+    document.addEventListener("DOMContentLoaded", tagRelatedCards);
+  }
+})();
+</script>
+
+<script>
+/* LANGUAGE TOGGLE LOGIC START */
+(function() {
+  "use strict";
+  
+  // Global language state
+  window.currentLanguage = "en";
+  
+  // Fetch stored preference
+  try {
+    var stored = localStorage.getItem("dd_language");
+    if (stored === "ta" || stored === "en") {
+      window.currentLanguage = stored;
+    }
+  } catch(e) {}
+  
+  // Field-level bilingual accessor
+  // Returns _ta variant if in Tamil mode AND _ta exists; else English
+  window.getFieldValue = function(temple, field) {
+    /* FALLBACK_CASCADE_v2 + REGION_TAMIL_LOOKUP_v3 */
+    if (!temple || !field) return "";
+    
+    if (window.currentLanguage === "ta") {
+      // 1. Try exact _ta variant first (e.g., temple_name_short_ta)
+      var taKey = field + "_ta";
+      if (temple[taKey] !== undefined && temple[taKey] !== null && temple[taKey] !== "") {
+        return temple[taKey];
+      }
+      
+      // 2. Special case: region field uses REGION_TAMIL lookup dictionary
+      if (field === "region" && window.REGION_TAMIL) {
+        var regionVal = temple[field];
+        if (regionVal && window.REGION_TAMIL[regionVal]) {
+          return window.REGION_TAMIL[regionVal];
+        }
+      }
+      
+      // 3. Cascade fallback: for "_short" fields, try the base _ta
+      if (field.indexOf("_short") !== -1) {
+        var baseField = field.replace("_short", "");
+        var baseTaKey = baseField + "_ta";
+        if (temple[baseTaKey] !== undefined && temple[baseTaKey] !== null && temple[baseTaKey] !== "") {
+          return temple[baseTaKey];
+        }
+      }
+      
+      // 4. For _sa (Sanskrit) fields in TA mode, try _sa_ta variant
+      if (field.indexOf("_sa") !== -1) {
+        var saTaKey = field + "_ta";
+        if (temple[saTaKey] !== undefined && temple[saTaKey] !== null && temple[saTaKey] !== "") {
+          return temple[saTaKey];
+        }
+      }
+    }
+    
+    // 5. Fallback: return English/original value
+    return temple[field] !== undefined ? temple[field] : "";
+  };
+  
+  // Array-level bilingual accessor (for arrays like distinctive_features)
+  window.getFieldArray = function(temple, field) {
+    var value = window.getFieldValue(temple, field);
+    return Array.isArray(value) ? value : [];
+  };
+  
+  // Switch language
+  window.switchLanguage = function(lang) {
+    if (lang !== "en" && lang !== "ta") return;
+    window.currentLanguage = lang;
+    
+    // Update body class
+    document.body.classList.remove("lang-en", "lang-ta");
+    document.body.classList.add("lang-" + lang);
+    
+    // Update button states
+    var enBtn = document.getElementById("lang-en");
+    var taBtn = document.getElementById("lang-ta");
+    if (enBtn) enBtn.classList.toggle("active", lang === "en");
+    if (taBtn) taBtn.classList.toggle("active", lang === "ta");
+    
+    // Persist
+    try { localStorage.setItem("dd_language", lang); } catch(e) {}
+    
+    // LIVE RERENDER PATCH — re-render currently open popup with new language
+    /* REBUILD_SIDEBAR_v4 — refresh temple list to reflect language change */
+    if (typeof window.buildSidebar === "function") {
+      try { window.buildSidebar(); } catch(e) { console.warn("[lang] buildSidebar error:", e.message); }
+    } else if (typeof window.buildSidebarList === "function") {
+      try { window.buildSidebarList(); } catch(e) { console.warn("[lang] buildSidebarList error:", e.message); }
+    }
+    
+    var panel = document.getElementById("detail-panel");
+    if (panel && panel.classList.contains("active") && window.currentPopupSno) {
+      /* PRESERVE_ACTIVE_TAB_v3 — remember active tab before re-render */
+      var activeTabBtn = document.querySelector(".tab.active");
+      var savedTabName = null;
+      if (activeTabBtn) {
+        var onc = activeTabBtn.getAttribute("onclick") || "";
+        var startQuote = onc.indexOf("switchTab(");
+        if (startQuote !== -1) {
+          var afterOpen = onc.substring(startQuote + 10);
+          var nameMatch = afterOpen.match(/[a-z_]+/);
+          if (nameMatch) savedTabName = nameMatch[0];
+        }
+      }
+      
+      if (typeof window.openTemplePopup === "function") {
+        window.openTemplePopup(window.currentPopupSno);
+        
+        if (savedTabName && savedTabName !== "sthala") {
+          setTimeout(function() {
+            if (window.DDPopup && typeof window.DDPopup.switchTab === "function") {
+              window.DDPopup.switchTab(savedTabName);
+            } else {
+              var tabBtns = document.querySelectorAll(".tab");
+              for (var i = 0; i < tabBtns.length; i++) {
+                var btnOnc = tabBtns[i].getAttribute("onclick") || "";
+                if (btnOnc.indexOf(savedTabName) !== -1) {
+                  tabBtns[i].click();
+                  break;
+                }
+              }
+            }
+          }, 50);
+        }
+      }
+    }
+    
+console.log("[lang] Switched to: " + lang);
+  };
+  
+  // Initialize on DOM ready
+  function initToggle() {
+    document.body.classList.add("lang-" + window.currentLanguage);
+    var enBtn = document.getElementById("lang-en");
+    var taBtn = document.getElementById("lang-ta");
+    if (enBtn) enBtn.classList.toggle("active", window.currentLanguage === "en");
+    if (taBtn) taBtn.classList.toggle("active", window.currentLanguage === "ta");
+  }
+  
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initToggle);
+  } else {
+    initToggle();
+  }
+})();
+/* LANGUAGE TOGGLE LOGIC END */
+</script>
+
+<script>
+/* STEP_5_MAP_MARKERS — Marker plotting + cluster + filter sync */
+(function() {
+  'use strict';
+  
+  var NADU_COLORS_MAP = {
+    'Chola Nadu': '#1E5AA0',
+    'Thondai Nadu': '#4A7C4E',
+    'Pandya Nadu': '#B8710A',
+    'Malai Nadu': '#0F6B70',
+    'Vada Nadu': '#4A148C',
+    'Nadu Nadu': '#6B5DB8',
+    'Abhimana Kshetram': '#C89932'
+  };
+  
+  window.templeMarkersGroup = null;
+  window.templeMarkersMap = {};
+  
+  function createMarkerIcon(temple) {
+    var color = temple.is_abhimana 
+      ? NADU_COLORS_MAP['Abhimana Kshetram'] 
+      : (NADU_COLORS_MAP[temple.region] || '#666');
+    var display = temple.is_abhimana ? '★' : temple.sno;
+    return L.divIcon({
+      html: '<div class="dd-map-marker" style="background:' + color + ';">' + display + '</div>',
+      className: 'dd-map-marker-wrapper',
+      iconSize: [32, 32],
+      iconAnchor: [16, 16]
+    });
+  }
+  
+  function initMapMarkers() {
+    /* STEP_5_4_FULL_FEATURE — Complete: pulse + preview + sidebar sync + Nadu clusters + disambiguation */
+    if (!window.leafletMap || typeof L === 'undefined' || typeof L.markerClusterGroup === 'undefined') {
+      setTimeout(initMapMarkers, 200);
+      return;
+    }
+    if (!window.DIVYA_DESAMS || !window.DIVYA_DESAMS.length) {
+      setTimeout(initMapMarkers, 200);
+      return;
+    }
+    
+    if (window.templeMarkersGroup) {
+      console.log('[map] Resetting existing marker state...');
+      try {
+        window.leafletMap.removeLayer(window.templeMarkersGroup);
+      } catch(e) {
+        console.warn('[map] Error removing old cluster group:', e.message);
+      }
+      window.templeMarkersGroup = null;
+      window.templeMarkersMap = {};
+    }
+    
+    if (typeof window.selectedTempleSno === 'undefined') {
+      window.selectedTempleSno = null;
+    }
+    
+    console.log('[map] Initializing markers for ' + window.DIVYA_DESAMS.length + ' temples...');
+    
+    var NADU_COLORS = {
+      'Chola Nadu': '#1E5AA0',
+      'Thondai Nadu': '#4A7C4E',
+      'Pandya Nadu': '#B8710A',
+      'Malai Nadu': '#0F6B70',
+      'Vada Nadu': '#4A148C',
+      'Nadu Nadu': '#6B5DB8'
+    };
+    var NADU_CLUSTER_CLASSES = {
+      'Chola Nadu': 'dd-cluster-chola',
+      'Thondai Nadu': 'dd-cluster-thondai',
+      'Pandya Nadu': 'dd-cluster-pandya',
+      'Malai Nadu': 'dd-cluster-malai',
+      'Vada Nadu': 'dd-cluster-vada',
+      'Nadu Nadu': 'dd-cluster-nadu'
+    };
+    
+    var group = L.markerClusterGroup({
+      iconCreateFunction: function(cluster) {
+        var count = cluster.getChildCount();
+        var markers = cluster.getAllChildMarkers();
+        var naduCounts = {};
+        for (var k = 0; k < markers.length; k++) {
+          var mrk = markers[k];
+          if (mrk._templeRegion && mrk._templeRegion !== '__abhimana__') {
+            naduCounts[mrk._templeRegion] = (naduCounts[mrk._templeRegion] || 0) + 1;
+          }
+        }
+        var distinctNadus = Object.keys(naduCounts);
+        var clusterClass = '';
+        if (distinctNadus.length === 1 && NADU_CLUSTER_CLASSES[distinctNadus[0]]) {
+          clusterClass = ' ' + NADU_CLUSTER_CLASSES[distinctNadus[0]];
+        }
+        return L.divIcon({
+          html: '<div class="dd-cluster-marker' + clusterClass + '">' + count + '</div>',
+          className: 'dd-cluster-wrapper',
+          iconSize: [50, 50]
+        });
+      },
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+      maxClusterRadius: 55,
+      zoomToBoundsOnClick: true
+    });
+    
+    var plotted = 0;
+    var seenSnos = {};
+    
+    window.DIVYA_DESAMS.forEach(function(temple) {
+      if (temple.is_celestial) return;
+      if (!temple.lat || !temple.lng) return;
+      
+      if (seenSnos[temple.sno]) {
+        console.warn('[map] Duplicate sno detected: ' + temple.sno + ' — "' + (temple.temple_name_short || temple.temple_name) + '" ignored');
+        return;
+      }
+      seenSnos[temple.sno] = temple.temple_name_short || temple.temple_name;
+      
+      var color;
+      if (temple.is_abhimana) {
+        color = '#C89932';
+      } else {
+        color = NADU_COLORS[temple.region] || '#666';
+      }
+      var display = temple.is_abhimana ? '★' : temple.sno;
+      var icon = L.divIcon({
+        html: '<div class="dd-map-marker" style="background:' + color + ';">' + display + '</div>',
+        className: 'dd-map-marker-wrapper',
+        iconSize: [32, 32],
+        iconAnchor: [16, 16]
+      });
+      
+      var marker = L.marker([temple.lat, temple.lng], { icon: icon });
+      marker._templeRegion = temple.is_abhimana ? '__abhimana__' : temple.region;
+      
+      var tooltipText = (typeof window.getFieldValue === 'function')
+        ? (window.getFieldValue(temple, 'temple_name_short') || window.getFieldValue(temple, 'temple_name'))
+        : (temple.temple_name_short || temple.temple_name);
+      
+      marker.bindTooltip(tooltipText, { 
+        direction: 'top', 
+        offset: [0, -12], 
+        className: 'dd-map-tooltip' 
+      });
+      
+      var previewHtml = buildPreviewCardHtml(temple);
+      marker.bindPopup(previewHtml, {
+        className: 'dd-map-preview-popup',
+        closeButton: false,
+        autoPan: false,
+        offset: [0, -8],
+        maxWidth: 280
+      });
+      
+      var hoverTimer = null;
+      marker.on('mouseover', function() {
+        if (window.innerWidth < 900) return;
+        clearTimeout(hoverTimer);
+        var mrk = this;
+        hoverTimer = setTimeout(function() {
+          mrk.openPopup();
+        }, 200);
+      });
+      marker.on('mouseout', function() {
+        clearTimeout(hoverTimer);
+        this.closePopup();
+      });
+      
+      (function(sno) {
+        marker.on('click', function() {
+          /* STEP_5_5_OPEN_POPUP — marker click opens temple popup + updates selection + highlights sidebar */
+          window.selectedTempleSno = sno;
+          applyMarkerSelection(sno);
+          highlightSidebarEntry(sno);
+          if (typeof window.openTemplePopup === 'function') {
+            window.openTemplePopup(sno);
+          }
+        });
+      })(temple.sno);
+      
+      window.templeMarkersMap[temple.sno] = marker;
+      group.addLayer(marker);
+      plotted++;
+    });
+    
+    window.templeMarkersGroup = group;
+    window.leafletMap.addLayer(group);
+    
+    if (plotted > 0 && !window._mapAutoFitted) {
+      var bounds = group.getBounds();
+      if (bounds && bounds.isValid()) {
+        window.leafletMap.fitBounds(bounds, { padding: [50, 50], maxZoom: 8 });
+        window._mapAutoFitted = true;
+      }
+    }
+    
+    console.log('[map] Plotted ' + plotted + ' temple markers (Full Feature + Nadu clusters + disambiguation)');
+    setupMapSync();
+    setupSidebarToMapSync();
+    
+    if (window.selectedTempleSno) {
+      applyMarkerSelection(window.selectedTempleSno);
+      highlightSidebarEntry(window.selectedTempleSno);
+    }
+  }
+  
+  function buildPreviewCardHtml(temple) {
+    var gfv = window.getFieldValue || function(t, f) { return t[f] || ''; };
+    var NC = {
+      'Chola Nadu': '#1E5AA0',
+      'Thondai Nadu': '#4A7C4E',
+      'Pandya Nadu': '#B8710A',
+      'Malai Nadu': '#0F6B70',
+      'Vada Nadu': '#4A148C',
+      'Nadu Nadu': '#6B5DB8'
+    };
+    var badgeColor = temple.is_abhimana ? '#C89932' : (NC[temple.region] || '#666');
+    var badgeDisplay = temple.is_abhimana ? '★' : temple.sno;
+    var name = gfv(temple, 'temple_name_short') || gfv(temple, 'temple_name') || '';
+    var town = gfv(temple, 'town') || '';
+    var regionLabel;
+    if (temple.is_abhimana) {
+      regionLabel = 'Abhimana Kshetram';
+    } else {
+      regionLabel = gfv(temple, 'region') || temple.region || '';
+    }
+    var tagline = gfv(temple, 'sthala_purana_tagline') || '';
+    
+    var html = '<div class="dd-preview-card">';
+    html += '<div class="dd-preview-card-header">';
+    html += '<div class="dd-preview-card-badge" style="background:' + badgeColor + ';">' + badgeDisplay + '</div>';
+    html += '<div class="dd-preview-card-titles">';
+    html += '<div class="dd-preview-card-name">' + escapeHtmlLocal(name) + '</div>';
+    if (town) {
+      html += '<div class="dd-preview-card-town">' + escapeHtmlLocal(town) + '</div>';
+    }
+    if (regionLabel) {
+      html += '<span class="dd-preview-card-nadu" style="border-color:' + badgeColor + '; color:' + badgeColor + '; background:' + badgeColor + '15;">' + escapeHtmlLocal(regionLabel) + '</span>';
+    }
+    html += '</div></div>';
+    if (tagline) {
+      html += '<div class="dd-preview-card-tagline">' + escapeHtmlLocal(tagline) + '</div>';
+    }
+    html += '</div>';
+    return html;
+  }
+  
+  function escapeHtmlLocal(s) {
+    if (s === null || s === undefined) return '';
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  
+  function applyMarkerSelection(sno) {
+    document.querySelectorAll('.dd-map-marker-selected').forEach(function(el) {
+      el.classList.remove('dd-map-marker-selected');
+    });
+    var marker = window.templeMarkersMap[sno];
+    if (marker && marker._icon) {
+      var innerMarker = marker._icon.querySelector('.dd-map-marker');
+      if (innerMarker) {
+        innerMarker.classList.add('dd-map-marker-selected');
+        innerMarker.style.animation = 'none';
+        setTimeout(function() {
+          innerMarker.style.animation = '';
+        }, 10);
+      }
+    }
+  }
+  
+  function highlightSidebarEntry(sno) {
+    document.querySelectorAll('.dd-temple-entry.dd-entry-highlighted').forEach(function(el) {
+      el.classList.remove('dd-entry-highlighted');
+    });
+    var entries = document.querySelectorAll('.dd-temple-entry');
+    for (var i = 0; i < entries.length; i++) {
+      var onclickAttr = entries[i].getAttribute('onclick') || '';
+      var match = onclickAttr.match(/openTemplePopup\((\d+)\)/);
+      if (match && parseInt(match[1], 10) === sno) {
+        entries[i].classList.add('dd-entry-highlighted');
+        entries[i].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        break;
+      }
+    }
+  }
+  
+  function setupSidebarToMapSync() {
+    var templeList = document.getElementById('temple-list');
+    if (!templeList) return;
+    if (window._sidebarToMapSyncActive) return;
+    window._sidebarToMapSyncActive = true;
+    
+    templeList.addEventListener('click', function(e) {
+      var entry = e.target.closest && e.target.closest('.dd-temple-entry');
+      if (!entry) return;
+      var onclickAttr = entry.getAttribute('onclick') || '';
+      var match = onclickAttr.match(/openTemplePopup\((\d+)\)/);
+      if (!match) return;
+      var sno = parseInt(match[1], 10);
+      
+      window.selectedTempleSno = sno;
+      applyMarkerSelection(sno);
+      setTimeout(function() { highlightSidebarEntry(sno); }, 30);
+      
+      var marker = window.templeMarkersMap[sno];
+      if (marker && window.leafletMap) {
+        var latlng = marker.getLatLng();
+        window.leafletMap.flyTo(latlng, Math.max(window.leafletMap.getZoom(), 11), {
+          animate: true,
+          duration: 0.8
+        });
+      }
+    }, true);
+    
+    console.log('[map] Sidebar-to-map sync active');
+  }
+  
+  window.applyMarkerSelection = applyMarkerSelection;
+  window.highlightSidebarEntry = highlightSidebarEntry;
+  window.buildPreviewCardHtml = buildPreviewCardHtml;
+  
+  function refreshMapMarkers() {
+    /* STEP_5_4_FULL_FEATURE — Idempotent refresh with selection + preview preservation */
+    if (!window.templeMarkersGroup) return;
+    
+    var searchQuery = (window.sidebarSearchQuery || '').toLowerCase().trim();
+    var activeChip = window.activeNaduChip || 'all';
+    
+    var visible = 0;
+    var visibleSnos = [];
+    
+    window.DIVYA_DESAMS.forEach(function(temple) {
+      if (temple.is_celestial) return;
+      if (!temple.lat || !temple.lng) return;
+      
+      var marker = window.templeMarkersMap[temple.sno];
+      if (!marker) return;
+      
+      if (typeof window.getFieldValue === 'function') {
+        var newTooltipText = window.getFieldValue(temple, 'temple_name_short') || window.getFieldValue(temple, 'temple_name');
+        var existingTooltip = marker.getTooltip();
+        if (existingTooltip && newTooltipText) {
+          existingTooltip.setContent(String(newTooltipText));
+        }
+      }
+      
+      if (typeof window.buildPreviewCardHtml === 'function') {
+        try {
+          var newPreviewHtml = window.buildPreviewCardHtml(temple);
+          marker.setPopupContent(newPreviewHtml);
+        } catch(e) {}
+      }
+      
+      var passes = true;
+      
+      if (searchQuery.length > 0) {
+        var searchText = [
+          temple.temple_name || '',
+          temple.temple_name_ta || '',
+          temple.temple_name_short || '',
+          temple.temple_name_short_ta || '',
+          temple.town || '',
+          temple.town_ta || '',
+          temple.region || ''
+        ].join(' ').toLowerCase();
+        passes = searchText.indexOf(searchQuery) !== -1;
+      } else if (activeChip !== 'all') {
+        if (activeChip === 'abhimana') {
+          passes = !!temple.is_abhimana;
+        } else {
+          passes = !temple.is_abhimana && temple.region === activeChip;
+        }
+      }
+      
+      var isCurrentlyInGroup = window.templeMarkersGroup.hasLayer(marker);
+      
+      if (passes) {
+        if (!isCurrentlyInGroup) {
+          window.templeMarkersGroup.addLayer(marker);
+        }
+        visible++;
+        visibleSnos.push(temple.sno);
+      } else {
+        if (isCurrentlyInGroup) {
+          window.templeMarkersGroup.removeLayer(marker);
+        }
+      }
+    });
+    
+    if (window.selectedTempleSno && typeof window.applyMarkerSelection === 'function') {
+      setTimeout(function() {
+        window.applyMarkerSelection(window.selectedTempleSno);
+      }, 50);
+    }
+    
+    console.log('[map] ' + visible + ' markers visible after refresh (SNos: ' + visibleSnos.join(',') + ')');
+  }
+  
+  function setupMapSync() {
+    var templeList = document.getElementById('temple-list');
+    if (!templeList) return;
+    if (window._mapSyncActive) return;
+    window._mapSyncActive = true;
+    
+    var syncTimer = null;
+    var observer = new MutationObserver(function() {
+      clearTimeout(syncTimer);
+      syncTimer = setTimeout(refreshMapMarkers, 50);
+    });
+    
+    observer.observe(templeList, { childList: true, subtree: false });
+    console.log('[map] Sidebar-map sync active via MutationObserver');
+  }
+  
+  window.initMapMarkers = initMapMarkers;
+  window.refreshMapMarkers = refreshMapMarkers;
+  
+  // Start when DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMapMarkers);
+  } else {
+    initMapMarkers();
+  }
+})();
+</script>
+</body>
+</html>
